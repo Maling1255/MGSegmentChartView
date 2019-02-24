@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8EAFFAC221F93A2007D913D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFAB221F93A2007D913D /* AppDelegate.m */; };
+		F8EAFFAF221F93A2007D913D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFAE221F93A2007D913D /* ViewController.m */; };
+		F8EAFFB2221F93A2007D913D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAFFB0221F93A2007D913D /* Main.storyboard */; };
+		F8EAFFB4221F93A3007D913D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EAFFB3221F93A3007D913D /* Assets.xcassets */; };
+		F8EAFFB7221F93A3007D913D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EAFFB5221F93A3007D913D /* LaunchScreen.storyboard */; };
+		F8EAFFBA221F93A3007D913D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFB9221F93A3007D913D /* main.m */; };
+		F8EAFFC4221F93A3007D913D /* MGSegmentChartViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFC3221F93A3007D913D /* MGSegmentChartViewTests.m */; };
+		F8EAFFCF221F93A3007D913D /* MGSegmentChartViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFCE221F93A3007D913D /* MGSegmentChartViewUITests.m */; };
+		F8EAFFDE221F9CDB007D913D /* MGSegmentChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFDD221F9CDB007D913D /* MGSegmentChartView.m */; };
+		F8EAFFE1221F9EC5007D913D /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFE0221F9EC5007D913D /* UIView+Frame.m */; };
+		F8EAFFE4221F9F85007D913D /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFE3221F9F85007D913D /* UIColor+Extension.m */; };
+		F8EAFFE8221FA3A4007D913D /* UIBezierPath+curved.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFE7221FA3A4007D913D /* UIBezierPath+curved.m */; };
+		F8EAFFEB221FC648007D913D /* MGSementChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8EAFFEA221FC648007D913D /* MGSementChartCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8EAFFC0221F93A3007D913D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8EAFF9F221F93A2007D913D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8EAFFA6221F93A2007D913D;
+			remoteInfo = MGSegmentChartView;
+		};
+		F8EAFFCB221F93A3007D913D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8EAFF9F221F93A2007D913D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8EAFFA6221F93A2007D913D;
+			remoteInfo = MGSegmentChartView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F8EAFFA7221F93A2007D913D /* MGSegmentChartView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGSegmentChartView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EAFFAA221F93A2007D913D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F8EAFFAB221F93A2007D913D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F8EAFFAD221F93A2007D913D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F8EAFFAE221F93A2007D913D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F8EAFFB1221F93A2007D913D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8EAFFB3221F93A3007D913D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8EAFFB6221F93A3007D913D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8EAFFB8221F93A3007D913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EAFFB9221F93A3007D913D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F8EAFFBF221F93A3007D913D /* MGSegmentChartViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSegmentChartViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EAFFC3221F93A3007D913D /* MGSegmentChartViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSegmentChartViewTests.m; sourceTree = "<group>"; };
+		F8EAFFC5221F93A3007D913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EAFFCA221F93A3007D913D /* MGSegmentChartViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGSegmentChartViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8EAFFCE221F93A3007D913D /* MGSegmentChartViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSegmentChartViewUITests.m; sourceTree = "<group>"; };
+		F8EAFFD0221F93A3007D913D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EAFFDC221F9CDB007D913D /* MGSegmentChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSegmentChartView.h; sourceTree = "<group>"; };
+		F8EAFFDD221F9CDB007D913D /* MGSegmentChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSegmentChartView.m; sourceTree = "<group>"; };
+		F8EAFFDF221F9EC5007D913D /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		F8EAFFE0221F9EC5007D913D /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		F8EAFFE2221F9F85007D913D /* UIColor+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		F8EAFFE3221F9F85007D913D /* UIColor+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		F8EAFFE5221F9FAE007D913D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F8EAFFE6221FA3A4007D913D /* UIBezierPath+curved.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+curved.h"; sourceTree = "<group>"; };
+		F8EAFFE7221FA3A4007D913D /* UIBezierPath+curved.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+curved.m"; sourceTree = "<group>"; };
+		F8EAFFE9221FC648007D913D /* MGSementChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSementChartCell.h; sourceTree = "<group>"; };
+		F8EAFFEA221FC648007D913D /* MGSementChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSementChartCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8EAFFA4221F93A2007D913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFBC221F93A3007D913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFC7221F93A3007D913D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8EAFF9E221F93A2007D913D = {
+			isa = PBXGroup;
+			children = (
+				F8EAFFA9221F93A2007D913D /* MGSegmentChartView */,
+				F8EAFFC2221F93A3007D913D /* MGSegmentChartViewTests */,
+				F8EAFFCD221F93A3007D913D /* MGSegmentChartViewUITests */,
+				F8EAFFA8221F93A2007D913D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8EAFFA8221F93A2007D913D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAFFA7221F93A2007D913D /* MGSegmentChartView.app */,
+				F8EAFFBF221F93A3007D913D /* MGSegmentChartViewTests.xctest */,
+				F8EAFFCA221F93A3007D913D /* MGSegmentChartViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8EAFFA9221F93A2007D913D /* MGSegmentChartView */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAFFAA221F93A2007D913D /* AppDelegate.h */,
+				F8EAFFAB221F93A2007D913D /* AppDelegate.m */,
+				F8EAFFAD221F93A2007D913D /* ViewController.h */,
+				F8EAFFAE221F93A2007D913D /* ViewController.m */,
+				F8EAFFE9221FC648007D913D /* MGSementChartCell.h */,
+				F8EAFFEA221FC648007D913D /* MGSementChartCell.m */,
+				F8EAFFDC221F9CDB007D913D /* MGSegmentChartView.h */,
+				F8EAFFDD221F9CDB007D913D /* MGSegmentChartView.m */,
+				F8EAFFDF221F9EC5007D913D /* UIView+Frame.h */,
+				F8EAFFE0221F9EC5007D913D /* UIView+Frame.m */,
+				F8EAFFE2221F9F85007D913D /* UIColor+Extension.h */,
+				F8EAFFE3221F9F85007D913D /* UIColor+Extension.m */,
+				F8EAFFE6221FA3A4007D913D /* UIBezierPath+curved.h */,
+				F8EAFFE7221FA3A4007D913D /* UIBezierPath+curved.m */,
+				F8EAFFE5221F9FAE007D913D /* PrefixHeader.pch */,
+				F8EAFFB0221F93A2007D913D /* Main.storyboard */,
+				F8EAFFB3221F93A3007D913D /* Assets.xcassets */,
+				F8EAFFB5221F93A3007D913D /* LaunchScreen.storyboard */,
+				F8EAFFB8221F93A3007D913D /* Info.plist */,
+				F8EAFFB9221F93A3007D913D /* main.m */,
+			);
+			path = MGSegmentChartView;
+			sourceTree = "<group>";
+		};
+		F8EAFFC2221F93A3007D913D /* MGSegmentChartViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAFFC3221F93A3007D913D /* MGSegmentChartViewTests.m */,
+				F8EAFFC5221F93A3007D913D /* Info.plist */,
+			);
+			path = MGSegmentChartViewTests;
+			sourceTree = "<group>";
+		};
+		F8EAFFCD221F93A3007D913D /* MGSegmentChartViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F8EAFFCE221F93A3007D913D /* MGSegmentChartViewUITests.m */,
+				F8EAFFD0221F93A3007D913D /* Info.plist */,
+			);
+			path = MGSegmentChartViewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8EAFFA6221F93A2007D913D /* MGSegmentChartView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8EAFFD3221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartView" */;
+			buildPhases = (
+				F8EAFFA3221F93A2007D913D /* Sources */,
+				F8EAFFA4221F93A2007D913D /* Frameworks */,
+				F8EAFFA5221F93A2007D913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MGSegmentChartView;
+			productName = MGSegmentChartView;
+			productReference = F8EAFFA7221F93A2007D913D /* MGSegmentChartView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8EAFFBE221F93A3007D913D /* MGSegmentChartViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8EAFFD6221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartViewTests" */;
+			buildPhases = (
+				F8EAFFBB221F93A3007D913D /* Sources */,
+				F8EAFFBC221F93A3007D913D /* Frameworks */,
+				F8EAFFBD221F93A3007D913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8EAFFC1221F93A3007D913D /* PBXTargetDependency */,
+			);
+			name = MGSegmentChartViewTests;
+			productName = MGSegmentChartViewTests;
+			productReference = F8EAFFBF221F93A3007D913D /* MGSegmentChartViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F8EAFFC9221F93A3007D913D /* MGSegmentChartViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8EAFFD9221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartViewUITests" */;
+			buildPhases = (
+				F8EAFFC6221F93A3007D913D /* Sources */,
+				F8EAFFC7221F93A3007D913D /* Frameworks */,
+				F8EAFFC8221F93A3007D913D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8EAFFCC221F93A3007D913D /* PBXTargetDependency */,
+			);
+			name = MGSegmentChartViewUITests;
+			productName = MGSegmentChartViewUITests;
+			productReference = F8EAFFCA221F93A3007D913D /* MGSegmentChartViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8EAFF9F221F93A2007D913D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = maling;
+				TargetAttributes = {
+					F8EAFFA6221F93A2007D913D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					F8EAFFBE221F93A3007D913D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F8EAFFA6221F93A2007D913D;
+					};
+					F8EAFFC9221F93A3007D913D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F8EAFFA6221F93A2007D913D;
+					};
+				};
+			};
+			buildConfigurationList = F8EAFFA2221F93A2007D913D /* Build configuration list for PBXProject "MGSegmentChartView" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8EAFF9E221F93A2007D913D;
+			productRefGroup = F8EAFFA8221F93A2007D913D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8EAFFA6221F93A2007D913D /* MGSegmentChartView */,
+				F8EAFFBE221F93A3007D913D /* MGSegmentChartViewTests */,
+				F8EAFFC9221F93A3007D913D /* MGSegmentChartViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8EAFFA5221F93A2007D913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAFFB7221F93A3007D913D /* LaunchScreen.storyboard in Resources */,
+				F8EAFFB4221F93A3007D913D /* Assets.xcassets in Resources */,
+				F8EAFFB2221F93A2007D913D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFBD221F93A3007D913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFC8221F93A3007D913D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8EAFFA3221F93A2007D913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAFFEB221FC648007D913D /* MGSementChartCell.m in Sources */,
+				F8EAFFAF221F93A2007D913D /* ViewController.m in Sources */,
+				F8EAFFE8221FA3A4007D913D /* UIBezierPath+curved.m in Sources */,
+				F8EAFFE4221F9F85007D913D /* UIColor+Extension.m in Sources */,
+				F8EAFFBA221F93A3007D913D /* main.m in Sources */,
+				F8EAFFAC221F93A2007D913D /* AppDelegate.m in Sources */,
+				F8EAFFE1221F9EC5007D913D /* UIView+Frame.m in Sources */,
+				F8EAFFDE221F9CDB007D913D /* MGSegmentChartView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFBB221F93A3007D913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAFFC4221F93A3007D913D /* MGSegmentChartViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8EAFFC6221F93A3007D913D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8EAFFCF221F93A3007D913D /* MGSegmentChartViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8EAFFC1221F93A3007D913D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8EAFFA6221F93A2007D913D /* MGSegmentChartView */;
+			targetProxy = F8EAFFC0221F93A3007D913D /* PBXContainerItemProxy */;
+		};
+		F8EAFFCC221F93A3007D913D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8EAFFA6221F93A2007D913D /* MGSegmentChartView */;
+			targetProxy = F8EAFFCB221F93A3007D913D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8EAFFB0221F93A2007D913D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8EAFFB1221F93A2007D913D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F8EAFFB5221F93A3007D913D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8EAFFB6221F93A3007D913D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8EAFFD1221F93A3007D913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F8EAFFD2221F93A3007D913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8EAFFD4221F93A3007D913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MGSegmentChartView/PrefixHeader.pch";
+				INFOPLIST_FILE = MGSegmentChartView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8EAFFD5221F93A3007D913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MGSegmentChartView/PrefixHeader.pch";
+				INFOPLIST_FILE = MGSegmentChartView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F8EAFFD7221F93A3007D913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				INFOPLIST_FILE = MGSegmentChartViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGSegmentChartView.app/MGSegmentChartView";
+			};
+			name = Debug;
+		};
+		F8EAFFD8221F93A3007D913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				INFOPLIST_FILE = MGSegmentChartViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MGSegmentChartView.app/MGSegmentChartView";
+			};
+			name = Release;
+		};
+		F8EAFFDA221F93A3007D913D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				INFOPLIST_FILE = MGSegmentChartViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MGSegmentChartView;
+			};
+			name = Debug;
+		};
+		F8EAFFDB221F93A3007D913D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TU4FCR75VS;
+				INFOPLIST_FILE = MGSegmentChartViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amberMobile.MGSegmentChartViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MGSegmentChartView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8EAFFA2221F93A2007D913D /* Build configuration list for PBXProject "MGSegmentChartView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAFFD1221F93A3007D913D /* Debug */,
+				F8EAFFD2221F93A3007D913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8EAFFD3221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAFFD4221F93A3007D913D /* Debug */,
+				F8EAFFD5221F93A3007D913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8EAFFD6221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAFFD7221F93A3007D913D /* Debug */,
+				F8EAFFD8221F93A3007D913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8EAFFD9221F93A3007D913D /* Build configuration list for PBXNativeTarget "MGSegmentChartViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8EAFFDA221F93A3007D913D /* Debug */,
+				F8EAFFDB221F93A3007D913D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8EAFF9F221F93A2007D913D /* Project object */;
+}

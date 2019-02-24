@@ -1,0 +1,24 @@
+//
+//  PrefixHeader.pch
+//  MGSegmentChartView
+//
+//  Created by maling on 2019/2/22.
+//  Copyright © 2019 maling. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "UIColor+Extension.h"
+#import "UIView+Frame.h"
+#import "UIBezierPath+curved.h"
+
+
+#define MGColor(r,g,b) [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:1.]
+#define MGRandomColor MGColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+#endif /* PrefixHeader_pch */
