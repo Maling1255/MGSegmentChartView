@@ -20,14 +20,13 @@
 
 //@property (nonatomic, assign) NSInteger maxValue;
 //@property (nonatomic, assign) NSInteger minValue;
-@property (nonatomic, assign) CGFloat marginValue; // 误差值
+//@property (nonatomic, assign) CGFloat marginValue; // 误差值
 
 @property (nonatomic, strong) NSMutableArray *yTempPointsArray;
 @property (nonatomic, strong) NSMutableArray *yTempValueArray;
-@property (nonatomic, strong) NSMutableArray *yControlPointsArray;  // 贝塞尔曲线控制点
-@property (nonatomic, strong) NSMutableArray *yMiddlePointsArray;
-@property (nonatomic, strong) NSMutableArray *yMMiddlePointsArray;
 
+
+@property (nonatomic, strong) UILabel *timeHourLbl;
 @property (nonatomic, strong) UILabel *templbl;
 @property (nonatomic, strong) UIView *circleView;
 
@@ -49,15 +48,12 @@
 
 - (void)initDataSource
 {
-    self.yTempValueArray = [[NSMutableArray alloc] init];
+    _yTempValueArray = [[NSMutableArray alloc] init];
     _yTempPointsArray = [[NSMutableArray alloc] init];
-    _yMiddlePointsArray = [[NSMutableArray alloc] init];
-    _yMMiddlePointsArray = [[NSMutableArray alloc] init];
-    _yControlPointsArray = [[NSMutableArray alloc] init];
     
     _maxValue = 35;
     _minValue = 10;
-    _marginValue = 30;
+    _marginValue = 50;     // 50
 }
 
 - (void)initBottomLayer
@@ -66,7 +62,7 @@
     _bottomLayer.backgroundColor = [UIColor clearColor].CGColor;
     _bottomLayer.frame = CGRectMake(0, 0, self.width, self.height);
     [self.layer addSublayer:_bottomLayer];
-    
+
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
     lineLayer.fillColor = [UIColor clearColor].CGColor;
     lineLayer.lineWidth =  2.0f;
@@ -75,6 +71,8 @@
     self.lineLayer = lineLayer;
     lineLayer.strokeColor = [UIColor redColor].CGColor;
     [_bottomLayer addSublayer:lineLayer];
+    
+    [self drawBottomLineLayer];
 }
 
 - (void)drawBottomLineLayer
@@ -83,6 +81,8 @@
     layer.backgroundColor = [UIColor colorFromHexCode:@"BD855D"].CGColor;
     layer.frame = CGRectMake(0, self.height - 19 - 1, self.width, 1);
     [_bottomLayer addSublayer:layer];
+    
+    [self addSubview:self.timeHourLbl];
     
     MGChartView_width = self.width;
     MGChartView_height = layer.frame.origin.y;
@@ -122,7 +122,33 @@
 {
     [_yTempPointsArray removeAllObjects];
     
-    CGFloat tempValue = _maxValue - _minValue + _marginValue;
+    
+    
+    NSInteger factor = [self rateFactorWithMaxValue:_maxValue minValue:_minValue];
+    
+    // MARK:
+//    CGFloat tempValue = _maxValue - _minValue + _marginValue;
+    
+//    CGFloat tempValue = _maxValue - _minValue + _marginValue;
+
+//    CGFloat tempValue = _maxValue - _minValue + _marginValue;
+    
+    CGFloat tempValue = _maxValue - _minValue ;
+    
+    if (tempValue == 0) {   tempValue = 10; }
+    
+    CGFloat argument = 0;
+    if (_minValue < 0 && _maxValue - _minValue >= 10)
+    {
+        argument = 20;
+    }
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    
+        NSLog(@"max: %f min: %f marginValue: %f  %f  \n\n..", self->_maxValue, self->_minValue, self->_marginValue, tempValue);
+    });
+    
     
     
     for (int i = 0; i < _yTempValueArray.count; i++) {
@@ -136,23 +162,76 @@
         else if (i == 3){XX = marginX + marginX/2.0;}
         else if (i == 4){XX = marginX + marginX/2.0 + marginX;}
         
-        CGFloat rate = [_yTempValueArray[i] floatValue] / tempValue;
+        CGFloat rate = ([_yTempValueArray[i] floatValue] - _minValue) / tempValue;
         
-        CGFloat YY = MGChartView_height * (1-rate) + _marginValue;
+        // MARK:
+//        CGFloat YY = MGChartView_height * (1-rate) - _marginValue/2.0;
+
+//        CGFloat YY = MGChartView_height * (1-rate)*10 + _marginValue;
         
+        
+//        NSLog(@"KKKK %f    %f  %f", (_minValue < 0 ? _maxValue+_minValue:0), _maxValue, _minValue);
+        
+//        CGFloat YY = MGChartView_height * (1-rate) * factor  + (_minValue < 0?(_minValue-_maxValue)*1.5:0) - argument;
+        
+        CGFloat YY = (MGChartView_height - 25*2) * (1-rate) + 30;
+     
         CGPoint point = CGPointMake(XX, YY);
         
-        NSLog(@">>>>>>>>point: %@", NSStringFromCGPoint(point));
+        if (i==2) {
+        
+            NSLog(@">>%.1f  %@  %f    %ld ", [_yTempValueArray[i] floatValue], NSStringFromCGPoint(point), (1-rate), factor);
+        }
+        
         
         [_yTempPointsArray addObject:[NSValue valueWithCGPoint:point]];
+    
     }
+    
+    
+    CGFloat tMaxY = -100, tMinY = 200;
+    // 对point点处理，
+    for (NSValue *pointValue in _yTempPointsArray) {
+        
+        CGPoint yPoint = [pointValue CGPointValue];
+        
+        if (tMaxY < yPoint.y) tMaxY = yPoint.y;
+        if (tMinY > yPoint.y) tMinY = yPoint.y;
+    }
+    
+    NSLog(@"tMaxY: %f  tMinY: %f", tMaxY,tMinY);
+    
+    
+    
+    
+    
 }
+
+- (NSInteger)rateFactorWithMaxValue:(CGFloat)maxValue minValue:(CGFloat)minValue
+{
+    if (maxValue - minValue <= 2) {
+        
+        return 2;
+    }
+//    else if (maxValue - minValue > 5 && maxValue - minValue <= 10)
+//    {
+//        return 5;
+//    }
+//    else if (maxValue - minValue > 10 && maxValue - minValue <= 15)
+//    {
+//        return 3;
+//    }
+//    else if (maxValue - minValue > 15 && maxValue - minValue <= 25)
+//    {
+//        return 2;
+//    }
+    
+    return 1;
+}
+
 
 - (void)drawCurveLine
 {
-//    [_yTempPointsArray removeAllObjects];
-//    [_yControlPointsArray removeAllObjects];
-    
     [_bottomLayer removeFromSuperlayer];
     
     [self initBottomLayer];
@@ -162,18 +241,14 @@
     layer.lineWidth =  2.0f;
     layer.lineCap = kCALineCapRound;
     layer.lineJoin = kCALineJoinRound;
-//    layer.strokeColor = [UIColor colorFromHexCode:@"00c1ed"].CGColor;
+    layer.strokeColor = [UIColor colorFromHexCode:@"FFFFFF"].CGColor;
     
-    layer.strokeColor = [UIColor redColor].CGColor;
     [_bottomLayer addSublayer:layer];
     
     self.lineLayer = layer;
     
     UIBezierPath *path = [UIBezierPath bezierPath];
 
-    CGFloat tempValue = _maxValue - _minValue + _marginValue;
-    
-    
     for (int i = 0; i < _yTempPointsArray.count; i++) {
         
         CGPoint point = [_yTempPointsArray[i] CGPointValue];
@@ -203,12 +278,13 @@
 
     _gradientLayer.colors =@[(__bridge id)[[UIColor colorFromHexCode:@"CBD7ED"] colorWithAlphaComponent:0.5].CGColor,
                              (__bridge id)[[UIColor colorFromHexCode:@"774A39"] colorWithAlphaComponent:0.5].CGColor,
-                             (__bridge id)[[UIColor clearColor] colorWithAlphaComponent:1].CGColor];
+                             (__bridge id)[UIColor clearColor].CGColor
+                             ];
 
 //    _gradientLayer.colors =@[(__bridge id)[UIColor colorWithRed:46/255.0 green:200/255.0 blue:237/255.0 alpha:0.5].CGColor,
 //                             (__bridge id)[UIColor colorWithRed:240/255.0 green:252/255.0 blue:254/255.0 alpha:0.4].CGColor];
 
-    _gradientLayer.locations = @[@0.1, @0.3, @0.9];
+    _gradientLayer.locations = @[@0.5, @0.75, @0.9];
     [_gradientLayer setStartPoint:CGPointMake(0, 0)];
     [_gradientLayer setEndPoint:CGPointMake(0, 1)];
 
@@ -253,17 +329,18 @@
         CGFloat radius = 2.0f;
         
         if (i == 2) {
-        
+
             [self addSubview:self.circleView];
             self.circleView.frame = CGRectMake(center.x - radius,
                                                center.y - radius,
                                                radius * 2.0,
                                                radius * 2.0);
-            
+
             [self addSubview:self.templbl];
             _templbl.centerX = _circleView.centerX;
             _templbl.centerY = _circleView.centerY - 20;
-            _templbl.text = [NSString stringWithFormat:@"%ld", [_yTempValueArray[i] integerValue]];
+            _templbl.text = [NSString stringWithFormat:@"%.1f", [_yTempValueArray[i] floatValue]];
+            
         }
     }
 }
@@ -282,10 +359,20 @@
 - (UILabel *)templbl
 {
     if (!_templbl) {
-        _templbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 20)];
+        _templbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 20)];
         _templbl.backgroundColor = [UIColor cyanColor];
     }
     return _templbl;
+}
+
+- (UILabel *)timeHourLbl
+{
+    if (!_timeHourLbl) {
+        _timeHourLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, self.height-21, self.width, 19)];
+        _timeHourLbl.textAlignment = NSTextAlignmentCenter;
+        _timeHourLbl.text = @"00";
+    }
+    return _timeHourLbl;
 }
 
 - (void)reloadData
@@ -303,12 +390,17 @@
 
 - (void)hideLayer
 {
-//    [_bottomLayer removeFromSuperlayer];
-    _bottomLayer.hidden = YES;
+    
+    [_bottomLayer removeFromSuperlayer];
+    
+    
+    
 }
 - (void)showLayer
 {
     _bottomLayer.hidden = NO;
+    
+    
 }
 
 

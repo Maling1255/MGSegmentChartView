@@ -12,6 +12,7 @@
 
 @interface MGSementChartCell ()
 
+@property (nonatomic, copy) NSString *keepTempValue;
 @property (nonatomic, strong) MGSegmentChartView *segmentView;
 
 @end
@@ -29,7 +30,7 @@
 - (void)setupSubviews
 {
     MGSegmentChartView *segmentView = [[MGSegmentChartView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height)];
-    segmentView.backgroundColor = MGRandomColor;//[UIColor colorFromHexCode:@"999999"];
+    segmentView.backgroundColor = [UIColor clearColor];
     self.segmentView = segmentView;
     [self addSubview:segmentView];
 }
@@ -42,128 +43,141 @@
 }
 //[cell setData:_dataArray indexPath:indexPath];
 
-- (void)setData:(NSArray *)dataArray indexPath:(NSIndexPath *)indexPath
+- (void)setData:(NSMutableArray *)dataArray indexPath:(NSIndexPath *)indexPath
 {
-    NSMutableArray *tempArray = dataArray.mutableCopy;
-    
-    
-    
-    dataArray = tempArray.copy;
-    
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-//        NSLog(@"HHHH %@", dataArray);
+        //        NSLog(@"HHHH %@", dataArray);
         
+        NSString *dataString = @"";
+        for (NSString *tempString in dataArray) {
+            
+            dataString = [dataString stringByAppendingString:[NSString stringWithFormat:@"%@,", tempString]];
+        }
         
-        NSLog(@"%@", [NSString stringWithFormat:@"30.0," @"30.1," @"30," @"20," @"25," @"30," @"30," @"27," @"30," @"31," @"30," @"27," @"28," @"26"]);
+        NSLog(@"\n\n  %@ \n\n..", dataString);
+        
+        //        NSLog(@"%@", [NSString stringWithFormat:@"30," @"20," @"25," @"30," @"30," @"27," @"30," @"31," @"30,"@"27," @"21," @"15," @"19"]);
     });
     
     
     NSInteger index = indexPath.row;
     NSMutableArray *tempValueArray = [[NSMutableArray alloc] init];
     
+    
     CGFloat maxValue = -100.0;
     CGFloat minValue = 200.0;
-
     
-    for (NSString *valueString in dataArray) {
+    NSMutableArray *tempDataArray0 = [[NSMutableArray alloc] initWithArray:dataArray];
+    
+    // 对空数据处理
+    for (id obj in tempDataArray0.mutableCopy) {
         
-        if (valueString.floatValue > maxValue) {
-            maxValue = valueString.floatValue;
+        if ([self isNullObject:obj]) {
+            
+            if (_keepTempValue.length > 0) {
+                
+                [tempDataArray0 replaceObjectAtIndex:[tempDataArray0 indexOfObject:obj] withObject:_keepTempValue];
+            }
+            else
+            {
+                // MARK: 暂时的数据，如果前面都是空的数据，写入一个固定的数据
+                [tempDataArray0 replaceObjectAtIndex:[tempDataArray0 indexOfObject:obj] withObject:@"20.3"];
+            }
         }
-        if (valueString.floatValue < minValue) {
-            minValue = valueString.floatValue;
+        else if ([obj isKindOfClass:[NSString class]])
+        {
+            NSString * valueString = (NSString *)obj;
+            
+            _keepTempValue = [NSString stringWithFormat:@"%.1f", [valueString floatValue] + 1.7];
+            
+            if (valueString.floatValue > maxValue) {
+                maxValue = valueString.floatValue;
+            }
+            if (valueString.floatValue < minValue) {
+                minValue = valueString.floatValue;
+            }
         }
     }
+    
+    NSLog(@"tempDataArray0:: %@", tempDataArray0);
+    NSMutableArray *tempDataArray = [[NSMutableArray alloc] initWithArray:tempDataArray0];
+    
+    for (id obj in tempDataArray.mutableCopy) {
 
-        id temp1, temp2, temp3, temp4, temp5;
-        if (index == 0 || index == 1)
-        {
-            
-//            temp1 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] + 0];;
-//            temp2 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] - 0];
-            
-            
-            if (index == 0)
-            {
-//                temp1 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] + 0];;
-//                temp2 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] - 0];
-                
-//                temp1 = @"30.0";
-//                temp2 = @"30.1";
-                
-                temp1 = [NSString stringWithFormat:@"%.1f",[dataArray[0] floatValue] + 0.5];
-                temp2 = [NSString stringWithFormat:@"%.1f",[dataArray[0] floatValue] - 0.5];
-            }
-            else if (index == 1)
-            {
-//                temp1 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] + 0];;
-//                temp2 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] - 0];
-                
-//                temp1 = @"30.1";
-//                temp2 = @"30";
-                
-                temp1 = [NSString stringWithFormat:@"%.1f",[dataArray[0] floatValue] - 0.5];
-                temp2 = [NSString stringWithFormat:@"%.1f",[dataArray[0] floatValue]];
-            }
-            
-            temp3 = dataArray[index];
-            temp4 = dataArray[index+1];
-            temp5 = dataArray[index+2];
-        }
-        else if (index == dataArray.count - 1 || index == dataArray.count - 2)
-        {
-            temp1 = dataArray[index-2];
-            temp2 = dataArray[index-1];
-            temp3 = dataArray[index];
-            
-            if (index == dataArray.count - 2) {
-//                temp4 = @"27";
-//                temp5 = @"28";
-                
-                temp4 = dataArray[dataArray.count - 1];
-                temp5 = [NSString stringWithFormat:@"%.1f",[dataArray[dataArray.count - 1] floatValue] + 0.5];
-                
-                NSLog(@"倒数第二个 %@", dataArray[dataArray.count - 1]);
-                NSLog(@"倒数第一个 %@", @"28");
-                
-            }
-            else if (index == dataArray.count - 1)
-            {
-                temp4 = [NSString stringWithFormat:@"%.1f",[dataArray[dataArray.count - 1] floatValue] + 0.5];
-                temp5 = [NSString stringWithFormat:@"%.1f",[dataArray[dataArray.count - 1] floatValue] - 0.5];
-//                temp4 = @"28";
-//                temp5 = @"26";
-            }
-            
-//            temp4 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] + 0];
-//            temp5 = [NSString stringWithFormat:@"%.1f",[dataArray[index] floatValue] - 0];
-        }
-        else
-        {
-            temp1 = dataArray[index-2];
-            temp2 = dataArray[index-1];
-            temp3 = dataArray[index];
-            temp4 = dataArray[index+1];
-            temp5 = dataArray[index+2];
-    
-        }
-    
-    
-        [tempValueArray addObject:temp1];
-        [tempValueArray addObject:temp2];
-        [tempValueArray addObject:temp3];
-        [tempValueArray addObject:temp4];
-        [tempValueArray addObject:temp5];
+        if ([obj isEqualToString:@"20.3"]) {
 
+            [tempDataArray replaceObjectAtIndex:[tempDataArray indexOfObject:obj] withObject:_keepTempValue];
+        }
+    }
+  
+    NSLog(@"tempDataArray:: %@", tempDataArray);
     
-    NSLog(@"index.row %ld max:%f  min:%f %@   ", indexPath.row, maxValue, minValue, tempValueArray);
+    
+    
+    
+    id temp1, temp2, temp3, temp4, temp5;
+    if (index == 0 || index == 1)
+    {
+        
+        if (index == 0)
+        {
+            
+            temp1 = [NSString stringWithFormat:@"%.1f",[tempDataArray[0] floatValue] + 0.5];
+            temp2 = [NSString stringWithFormat:@"%.1f",[tempDataArray[0] floatValue] - 0.5];
+        }
+        else if (index == 1)
+        {
+            temp1 = [NSString stringWithFormat:@"%.1f",[tempDataArray[0] floatValue] - 0.5];
+            temp2 = [NSString stringWithFormat:@"%.1f",[tempDataArray[0] floatValue]];
+        }
+        
+        temp3 = tempDataArray[index];
+        temp4 = tempDataArray[index+1];
+        temp5 = tempDataArray[index+2];
+    }
+    else if (index == tempDataArray.count - 1 || index == tempDataArray.count - 2)
+    {
+        temp1 = tempDataArray[index-2];
+        temp2 = tempDataArray[index-1];
+        temp3 = tempDataArray[index];
+        
+        if (index == tempDataArray.count - 2) {
+            
+            temp4 = tempDataArray[tempDataArray.count - 1];
+            temp5 = [NSString stringWithFormat:@"%.1f",[tempDataArray[tempDataArray.count - 1] floatValue] + 0.5];
+            
+        }
+        else if (index == tempDataArray.count - 1)
+        {
+            temp4 = [NSString stringWithFormat:@"%.1f",[tempDataArray[tempDataArray.count - 1] floatValue] + 0.5];
+            temp5 = [NSString stringWithFormat:@"%.1f",[tempDataArray[tempDataArray.count - 1] floatValue] - 0.5];
+        }
+    }
+    else
+    {
+        temp1 = tempDataArray[index-2];
+        temp2 = tempDataArray[index-1];
+        temp3 = tempDataArray[index];
+        temp4 = tempDataArray[index+1];
+        temp5 = tempDataArray[index+2];
+    }
+    
+    [tempValueArray addObject:temp1];
+    [tempValueArray addObject:temp2];
+    [tempValueArray addObject:temp3];
+    [tempValueArray addObject:temp4];
+    [tempValueArray addObject:temp5];
+    
+    
+    //    NSLog(@"index.row %ld max:%f  min:%f %@   ", indexPath.row, maxValue, minValue, tempValueArray);
     
     self.segmentView.tempValueArray = tempValueArray;
     self.segmentView.maxValue = maxValue;
     self.segmentView.minValue = minValue;
+    self.segmentView.marginValue = maxValue + 10;
     
     
     [self.segmentView reloadData];
@@ -177,8 +191,11 @@
     }
     else if ([object isKindOfClass:[NSNull class]])
     {
-        if ([object isEqualToString:@""])
-        {
+      return YES;
+    }
+    else if ([object isKindOfClass:[NSString class]])
+    {
+        if ([object length] == 0) {
             return YES;
         }
         else
@@ -186,8 +203,8 @@
             return NO;
         }
     }
-    return NO;
     
+    return NO;
 }
 
 
@@ -195,53 +212,15 @@
 - (void)hideLayer
 {
     self.segmentView.hidden = YES;
+    
+//    [self.segmentView hideLayer];
+    
 }
 - (void)showLayer
 {
     self.segmentView.hidden = NO;
+    
+//    [self.segmentView showLayer];
 }
 
 @end
-
-
-
-//    id temp1, temp2, temp3, temp4;
-//    if (index == 0)
-//    {
-//        temp1 = dataArray[index];
-//        temp2 = dataArray[index];
-//
-//        if (dataArray.count == 1) { temp3 = dataArray[index];}
-//        else {temp3 = dataArray[index+1];}
-//
-//        temp4 = dataArray[index+2];
-//    }
-//    else if (index == dataArray.count - 1)
-//    {
-//        temp1 = dataArray[index-1];
-//        temp2 = dataArray[index];
-//        temp3 = dataArray[index];
-//        temp4 = dataArray[index];
-//    }
-//    else
-//    {
-//        temp1 = dataArray[index-1];
-//        temp2 = dataArray[index];
-//        temp3 = dataArray[index+1];
-//
-//        if (index+2 > dataArray.count - 1) {
-//            temp4 = dataArray[dataArray.count - 1];
-//        }
-//        else
-//        {
-//            temp4 = dataArray[index+2];
-//        }
-//
-//    }
-//
-//
-//    [tempValueArray addObject:temp1];
-//    [tempValueArray addObject:temp2];
-//    [tempValueArray addObject:temp3];
-//
-//    [tempValueArray addObject:temp4];

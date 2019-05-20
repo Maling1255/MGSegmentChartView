@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *tempValueArray;
 @property (nonatomic, assign) CGFloat maxValue;
 @property (nonatomic, assign) CGFloat minValue;
+@property (nonatomic, assign) CGFloat marginValue; // 误差值
 
 - (void)reloadData;
 - (void)hideLayer;

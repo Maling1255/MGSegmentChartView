@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MGSementChartCell : UICollectionViewCell
 
 @property (nonatomic, strong) NSArray *tempValueArray;
-- (void)setData:(NSArray *)dataArray indexPath:(NSIndexPath *)indexPath;
+- (void)setData:(NSMutableArray *)dataArray indexPath:(NSIndexPath *)indexPath;
 
 - (void)hideLayer;
 - (void)showLayer;
